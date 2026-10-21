@@ -1,13 +1,15 @@
+
 name: Build Open Jarvis APK
 
-on: 
+'on':
   workflow_dispatch:
   push:
-    branches: [main, master]
+    branches:
+      - main
+      - master
 
 permissions:
   contents: read
-
 permissions:
 contents: read
 
