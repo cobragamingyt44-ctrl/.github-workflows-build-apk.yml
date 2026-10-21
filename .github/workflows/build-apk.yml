@@ -26,13 +26,14 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses
+
       - name: Install Android SDK 34
         run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
 
-      - name: Set up Gradle 8.2
+      - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.2'
 
       - name: Build debug APK
         run: gradle --no-daemon assembleDebug
@@ -44,3 +45,4 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 7
+          
